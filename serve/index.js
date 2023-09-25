@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 5000;
 
 app.listen(port, () => console.log(`포트 연결 중.. ${port}!`));
 
@@ -33,7 +33,7 @@ mongoose
   .then(() => console.log("몽고DB connected!"))
   .catch((err) => console.log(err));
 
-app.get("/", (req, res) => res.send("Hello world~~"));
+//app.get("/", (req, res) => res.send("Hello world~~"));
 
 // app.post("/register", (req, res) => {
 //   // 회원가입 할때 필요한 정보들을 client에서 가져와서
@@ -188,4 +188,8 @@ app.get("/api/users/logout", auth, async (req, res) => {
   } catch (err) {
     console.error(err);
   }
+});
+
+app.get("/api/hello", (req, res) => {
+  res.send("안녕~ㅎㅎㅎ");
 });
